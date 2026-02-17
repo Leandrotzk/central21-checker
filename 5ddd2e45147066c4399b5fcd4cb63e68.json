@@ -1,7 +1,7 @@
 [
     {
         "username": "Gold21",
-        "password": "$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+        "password": "$2y$12$mmmZy5736RBjo428PfbrgOERgjJnzpk2wzD/UzkMh77NOJqW.d1VC",
         "ip": "0.0.0.0",
         "creationDate": "2026-02-14 20:40:00",
         "expirationDate": "2099-12-31 23:59:59",
@@ -10,7 +10,7 @@
     },
     {
         "username": "admin",
-        "password": "$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+        "password": "$2y$12$mmmZy5736RBjo428PfbrgOERgjJnzpk2wzD/UzkMh77NOJqW.d1VC",
         "ip": "0.0.0.0",
         "creationDate": "2026-02-14 20:40:00",
         "expirationDate": "2099-12-31 23:59:59",
