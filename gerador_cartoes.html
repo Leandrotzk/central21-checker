@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cartões - CENTRAL21</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #b8b8b8;
+            font-size: 1rem;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card h2 {
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        select {
+            cursor: pointer;
+        }
+        
+        select option {
+            background: #302b63;
+            color: white;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #45a049, #3d8b40);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #2196F3, #1976D2);
+            margin-top: 10px;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(45deg, #1976D2, #1565C0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+        }
+        
+        .btn-clear {
+            background: linear-gradient(45deg, #f44336, #d32f2f);
+            margin-top: 10px;
+        }
+        
+        .btn-clear:hover {
+            background: linear-gradient(45deg, #d32f2f, #b71c1c);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card p {
+            color: #b8b8b8;
+            font-size: 0.9rem;
+        }
+        
+        .output-area {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .cc-line {
+            padding: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .cc-line:hover {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 3px solid #4CAF50;
+        }
+        
+        .info-box {
+            background: rgba(33, 150, 243, 0.1);
+            border: 1px solid rgba(33, 150, 243, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            color: white;
+        }
+        
+        .info-box h4 {
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+        
+        .info-box ul {
+            margin-left: 20px;
+            color: #b8b8b8;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1><i class="fas fa-credit-card"></i> Gerador de Cartões</h1>
+            <p class="subtitle">CENTRAL21 - Ferramenta de Geração de CC para Testes</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Input Card -->
+            <div class="card">
+                <h2><i class="fas fa-cog"></i> Configurações</h2>
+                
+                <div class="input-group">
+                    <label>BIN (6 dígitos):</label>
+                    <input type="text" id="bin" placeholder="Ex: 456789" maxlength="6">
+                </div>
+                
+                <div class="input-group">
+                    <label>Mês (MM):</label>
+                    <select id="mes">
+                        <option value="random">Aleatório</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Ano (AAAA):</label>
+                    <select id="ano">
+                        <option value="random">Aleatório</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>CVV:</label>
+                    <select id="cvv">
+                        <option value="random">Aleatório</option>
+                        <option value="custom">Personalizado</option>
+                    </select>
+                </div>
+                
+                <div class="input-group" id="cvv-custom" style="display: none;">
+                    <label>CVV Personalizado:</label>
+                    <input type="text" id="cvv-input" placeholder="Ex: 123" maxlength="4">
+                </div>
+                
+                <div class="input-group">
+                    <label>Quantidade:</label>
+                    <input type="number" id="quantidade" value="10" min="1" max="1000">
+                </div>
+                
+                <div class="input-group">
+                    <label>Formato:</label>
+                    <select id="formato">
+                        <option value="full">NUMERO|MES|ANO|CVV</option>
+                        <option value="simple">NUMERO MES ANO CVV</option>
+                        <option value="slash">NUMERO/MES/ANO/CVV</option>
+                        <option value="json">JSON</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-primary" onclick="gerarCartoes()">
+                    <i class="fas fa-magic"></i> Gerar Cartões
+                </button>
+                
+                <button class="btn btn-secondary" onclick="copiarTodos()">
+                    <i class="fas fa-copy"></i> Copiar Todos
+                </button>
+                
+                <button class="btn btn-clear" onclick="limparResultados()">
+                    <i class="fas fa-trash"></i> Limpar
+                </button>
+            </div>
+            
+            <!-- Output Card -->
+            <div class="card">
+                <h2><i class="fas fa-list"></i> Resultados</h2>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3 id="total-gerados">0</h3>
+                        <p>Total Gerado</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="bin-usado">------</h3>
+                        <p>BIN Usado</p>
+                    </div>
+                </div>
+                
+                <div class="output-area" id="output"></div>
+                
+                <div class="info-box">
+                    <h4><i class="fas fa-info-circle"></i> Informações</h4>
+                    <ul>
+                        <li>Os cartões são gerados usando o algoritmo de Luhn</li>
+                        <li>Clique em qualquer cartão para copiar</li>
+                        <li>Máximo de 1000 cartões por vez</li>
+                        <li>Para usar no checker, copie e cole diretamente</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Popular anos
+        const selectAno = document.getElementById('ano');
+        const anoAtual = new Date().getFullYear();
+        for (let i = anoAtual; i <= anoAtual + 10; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            selectAno.appendChild(option);
+        }
+        
+        // Mostrar/ocultar CVV personalizado
+        document.getElementById('cvv').addEventListener('change', function() {
+            document.getElementById('cvv-custom').style.display = 
+                this.value === 'custom' ? 'block' : 'none';
+        });
+        
+        // Algoritmo de Luhn para validar/gerar número de cartão
+        function calcularDigitoLuhn(numero) {
+            let soma = 0;
+            let alternado = false;
+            
+            for (let i = numero.length - 1; i >= 0; i--) {
+                let digito = parseInt(numero.charAt(i));
+                
+                if (alternado) {
+                    digito *= 2;
+                    if (digito > 9) {
+                        digito -= 9;
+                    }
+                }
+                
+                soma += digito;
+                alternado = !alternado;
+            }
+            
+            return (10 - (soma % 10)) % 10;
+        }
+        
+        function gerarNumeroCartao(bin) {
+            // Completa com dígitos aleatórios até 15 dígitos
+            let numero = bin;
+            while (numero.length < 15) {
+                numero += Math.floor(Math.random() * 10);
+            }
+            
+            // Adiciona o dígito verificador de Luhn
+            const digitoVerificador = calcularDigitoLuhn(numero);
+            return numero + digitoVerificador;
+        }
+        
+        function gerarMesAleatorio() {
+            return String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
+        }
+        
+        function gerarAnoAleatorio() {
+            const anoAtual = new Date().getFullYear();
+            return anoAtual + Math.floor(Math.random() * 8);
+        }
+        
+        function gerarCVVAleatorio() {
+            return String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+        }
+        
+        function formatarCartao(numero, mes, ano, cvv, formato) {
+            switch (formato) {
+                case 'full':
+                    return `${numero}|${mes}|${ano}|${cvv}`;
+                case 'simple':
+                    return `${numero} ${mes} ${ano} ${cvv}`;
+                case 'slash':
+                    return `${numero}/${mes}/${ano}/${cvv}`;
+                case 'json':
+                    return JSON.stringify({
+                        number: numero,
+                        month: mes,
+                        year: ano,
+                        cvv: cvv
+                    });
+                default:
+                    return `${numero}|${mes}|${ano}|${cvv}`;
+            }
+        }
+        
+        function gerarCartoes() {
+            const bin = document.getElementById('bin').value.trim();
+            const mesSelecionado = document.getElementById('mes').value;
+            const anoSelecionado = document.getElementById('ano').value;
+            const cvvSelecionado = document.getElementById('cvv').value;
+            const quantidade = parseInt(document.getElementById('quantidade').value);
+            const formato = document.getElementById('formato').value;
+            
+            // Validações
+            if (bin.length !== 6 || !/^\d+$/.test(bin)) {
+                alert('Por favor, insira um BIN válido de 6 dígitos!');
+                return;
+            }
+            
+            if (quantidade < 1 || quantidade > 1000) {
+                alert('A quantidade deve estar entre 1 e 1000!');
+                return;
+            }
+            
+            // Gerar cartões
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+            
+            const cartoes = [];
+            
+            for (let i = 0; i < quantidade; i++) {
+                const numero = gerarNumeroCartao(bin);
+                const mes = mesSelecionado === 'random' ? gerarMesAleatorio() : mesSelecionado;
+                const ano = anoSelecionado === 'random' ? gerarAnoAleatorio() : anoSelecionado;
+                let cvv;
+                
+                if (cvvSelecionado === 'random') {
+                    cvv = gerarCVVAleatorio();
+                } else if (cvvSelecionado === 'custom') {
+                    cvv = document.getElementById('cvv-input').value || gerarCVVAleatorio();
+                }
+                
+                const cartaoFormatado = formatarCartao(numero, mes, ano, cvv, formato);
+                cartoes.push(cartaoFormatado);
+                
+                const linha = document.createElement('div');
+                linha.className = 'cc-line';
+                linha.textContent = cartaoFormatado;
+                linha.onclick = function() {
+                    copiarTexto(cartaoFormatado);
+                };
+                output.appendChild(linha);
+            }
+            
+            // Atualizar estatísticas
+            document.getElementById('total-gerados').textContent = quantidade;
+            document.getElementById('bin-usado').textContent = bin;
+        }
+        
+        function copiarTexto(texto) {
+            navigator.clipboard.writeText(texto).then(() => {
+                // Feedback visual temporário
+                const tempEl = document.createElement('div');
+                tempEl.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: rgba(76, 175, 80, 0.9);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 10px;
+                    z-index: 9999;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                `;
+                tempEl.textContent = '✓ Copiado!';
+                document.body.appendChild(tempEl);
+                setTimeout(() => tempEl.remove(), 2000);
+            });
+        }
+        
+        function copiarTodos() {
+            const output = document.getElementById('output');
+            const texto = Array.from(output.children)
+                .map(el => el.textContent)
+                .join('\n');
+            
+            if (texto) {
+                copiarTexto(texto);
+            } else {
+                alert('Gere alguns cartões primeiro!');
+            }
+        }
+        
+        function limparResultados() {
+            document.getElementById('output').innerHTML = '';
+            document.getElementById('total-gerados').textContent = '0';
+            document.getElementById('bin-usado').textContent = '------';
+        }
+    </script>
+</body>
+</html>

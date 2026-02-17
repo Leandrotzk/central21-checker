@@ -1,0 +1,264 @@
+╔═══════════════════════════════════════════════════════════════╗
+║         CONFIGURAÇÃO SQUARECLOUD - CENTRAL21                  ║
+║              Arquivo squarecloud.app Incluído                 ║
+╚═══════════════════════════════════════════════════════════════╝
+
+
+📋 CONFIGURAÇÕES DO APLICATIVO:
+═══════════════════════════════════════════════════════════════
+
+✅ Nome da Aplicação:
+   CENTRAL21
+
+✅ Descrição:
+   Sistema Checker CENTRAL21 - Painel de Gestão e Validação
+
+✅ Subdomínio:
+   center21
+   URL Final: https://center21.squareweb.app
+
+✅ Memória RAM:
+   1024 MB (1 GB)
+
+✅ Versão PHP:
+   Recomendada (latest stable)
+
+✅ Arquivo Principal:
+   index.php
+
+
+📄 ARQUIVO DE CONFIGURAÇÃO INCLUÍDO:
+═══════════════════════════════════════════════════════════════
+
+O arquivo squarecloud.app já está incluído no ZIP com:
+
+DISPLAY_NAME=CENTRAL21
+DESCRIPTION=Sistema Checker CENTRAL21 - Painel de Gestão e Validação
+SUBDOMAIN=center21
+MEMORY=1024
+VERSION=recommended
+MAIN=index.php
+
+
+🚀 DUAS FORMAS DE FAZER DEPLOY:
+═══════════════════════════════════════════════════════════════
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPÇÃO 1: UPLOAD AUTOMÁTICO (Recomendado)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Acesse: https://squarecloud.app/dashboard
+
+2. Clique em "Nova Aplicação"
+
+3. Faça upload do arquivo: central21_squarecloud_pronto.zip
+
+4. A Squarecloud vai LER o arquivo squarecloud.app automaticamente
+   e configurar tudo sozinha:
+   ✓ Nome: CENTRAL21
+   ✓ Subdomínio: center21
+   ✓ Memória: 1024 MB
+   ✓ Etc...
+
+5. Clique em "Deploy" e pronto!
+
+6. Acesse: https://center21.squareweb.app
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPÇÃO 2: CONFIGURAÇÃO MANUAL (Via Painel)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Acesse o painel da Squarecloud
+
+2. Crie nova aplicação
+
+3. Preencha manualmente:
+   
+   Campo: DISPLAY NAME
+   Valor: CENTRAL21
+   
+   Campo: DESCRIPTION
+   Valor: Sistema Checker CENTRAL21 - Painel de Gestão e Validação
+   
+   Campo: SUBDOMAIN
+   Valor: center21
+   
+   Campo: MEMORY (RAM)
+   Valor: 1024
+   
+   Campo: VERSION
+   Valor: recommended
+   
+   Campo: MAIN FILE
+   Valor: index.php
+
+4. Faça upload dos arquivos
+
+5. Ative a aplicação
+
+
+⚙️ CONFIGURAÇÕES ADICIONAIS RECOMENDADAS:
+═══════════════════════════════════════════════════════════════
+
+Após o deploy, configure no painel:
+
+🔧 PHP Settings:
+   ✓ PHP Version: 7.4 ou superior
+   ✓ max_execution_time: 300
+   ✓ memory_limit: 512M
+   ✓ upload_max_filesize: 50M
+   ✓ post_max_size: 50M
+
+🔧 Apache Modules:
+   ✓ mod_rewrite: ENABLED (obrigatório!)
+   ✓ mod_headers: ENABLED
+   ✓ mod_ssl: ENABLED
+
+🔧 PHP Extensions:
+   ✓ cURL: ENABLED
+   ✓ JSON: ENABLED
+   ✓ session: ENABLED
+   ✓ fileinfo: ENABLED
+   ✓ mbstring: ENABLED
+
+🔧 Timezone:
+   ✓ America/Sao_Paulo
+
+🔧 SSL/HTTPS:
+   ✓ Force HTTPS: ENABLED (recomendado)
+   ✓ Auto SSL: ENABLED
+
+
+📁 ESTRUTURA DE ARQUIVOS NO SERVIDOR:
+═══════════════════════════════════════════════════════════════
+
+/
+├── squarecloud.app           ← Config automática
+├── .htaccess                 ← Rewrite rules
+├── index.php                 ← Página inicial
+├── login.php
+├── home.php
+├── checker.php
+├── 5ddd2e45147066c4399b5fcd4cb63e68.json
+└── [todos os outros arquivos PHP]
+
+
+🌐 URLS DO SEU SISTEMA:
+═══════════════════════════════════════════════════════════════
+
+Homepage:
+https://center21.squareweb.app/
+
+Login:
+https://center21.squareweb.app/login
+
+Dashboard:
+https://center21.squareweb.app/home
+
+Checker:
+https://center21.squareweb.app/checker
+
+Admin:
+https://center21.squareweb.app/admin_login
+
+
+🔐 PERMISSÕES DE ARQUIVOS:
+═══════════════════════════════════════════════════════════════
+
+Após o deploy, verifique/ajuste:
+
+Arquivo JSON: chmod 666
+5ddd2e45147066c4399b5fcd4cb63e68.json
+
+Arquivo Cookie: chmod 666
+cookie.txt
+
+Arquivos PHP: chmod 644
+*.php
+
+Diretórios: chmod 755
+/
+
+
+✅ VERIFICAÇÃO PÓS-DEPLOY:
+═══════════════════════════════════════════════════════════════
+
+□ Site acessível em https://center21.squareweb.app
+□ Login funciona (Gold21 / 102030)
+□ Dashboard carrega corretamente
+□ Checker está operacional
+□ URLs amigáveis funcionando (sem .php)
+□ Sessões PHP funcionando
+□ Arquivo JSON com permissão de escrita
+
+
+🐛 TROUBLESHOOTING:
+═══════════════════════════════════════════════════════════════
+
+❌ Erro 404:
+   → Verifique se mod_rewrite está ativo
+   → Confirme que .htaccess foi enviado
+
+❌ Erro 500:
+   → Veja logs no painel Squarecloud
+   → Verifique permissões dos arquivos
+   → Confirme versão do PHP (7.4+)
+
+❌ Login não funciona:
+   → Permissão do JSON deve ser 666
+   → Verifique se sessões PHP estão ativas
+   → Limpe cache do navegador
+
+❌ "Subdomínio já existe":
+   → Escolha outro nome: center21official, central21app, etc.
+   → Edite o arquivo squarecloud.app
+   → Ou configure manualmente no painel
+
+
+📊 MONITORAMENTO:
+═══════════════════════════════════════════════════════════════
+
+No painel Squarecloud você pode ver:
+
+✓ CPU Usage
+✓ RAM Usage (deve ficar abaixo de 1024 MB)
+✓ Requests/minute
+✓ Uptime
+✓ Error logs
+✓ Access logs
+
+
+💡 DICAS IMPORTANTES:
+═══════════════════════════════════════════════════════════════
+
+1. A Squarecloud vai reconhecer automaticamente o arquivo
+   squarecloud.app e configurar tudo sozinha
+
+2. Se o subdomínio "center21" não estiver disponível,
+   a Squarecloud vai avisar e você pode escolher outro
+
+3. A memória de 1024 MB é mais que suficiente para
+   este sistema PHP
+
+4. Não precisa configurar banco de dados - o sistema
+   usa JSON
+
+5. Após o primeiro deploy, você pode atualizar os
+   arquivos via FTP ou Git
+
+
+═══════════════════════════════════════════════════════════════
+              🎉 BOA SORTE COM SEU DEPLOY! 🎉
+═══════════════════════════════════════════════════════════════
+
+Seu sistema estará online em:
+https://center21.squareweb.app
+
+Login: Gold21 / 102030
+
+═══════════════════════════════════════════════════════════════
+                    Desenvolvido por CENTRAL21
+                         Versão 2.1 - 2026
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Hash Bcrypt - CENTRAL21</title>
+    <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .subtitle {
+            color: #b8b8b8;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        button:hover {
+            background: linear-gradient(45deg, #45a049, #3d8b40);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .result {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            resize: none;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        
+        .copy-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: auto;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .instructions {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            color: white;
+        }
+        
+        .instructions h4 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            color: #b8b8b8;
+            line-height: 1.8;
+        }
+        
+        .instructions code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #4CAF50;
+        }
+        
+        .alert {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #ff9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Gerador de Hash Bcrypt</h1>
+        <p class="subtitle">Para CENTRAL21 - Gold21</p>
+        
+        <div class="alert">
+            ⚠️ <strong>Importante:</strong> Esta hash deve ser colocada no arquivo <code>5ddd2e45147066c4399b5fcd4cb63e68.json</code>
+        </div>
+        
+        <div class="input-group">
+            <label>Senha para gerar hash:</label>
+            <input type="text" id="senha" value="102030" placeholder="Digite a senha">
+        </div>
+        
+        <button onclick="gerarHash()">🔑 Gerar Hash Bcrypt</button>
+        
+        <div class="result" id="resultado">
+            <h3>✅ Hash gerada com sucesso!</h3>
+            <textarea id="hashOutput" readonly></textarea>
+            <button class="copy-btn" onclick="copiarHash()">📋 Copiar Hash</button>
+        </div>
+        
+        <div class="instructions">
+            <h4>📝 Como usar:</h4>
+            <ol>
+                <li>Clique em "Gerar Hash Bcrypt" acima</li>
+                <li>Copie a hash gerada</li>
+                <li>Abra o arquivo <code>5ddd2e45147066c4399b5fcd4cb63e68.json</code></li>
+                <li>Localize o usuário "Gold21"</li>
+                <li>Cole a nova hash no campo <code>"password"</code></li>
+                <li>Salve o arquivo</li>
+                <li>Faça login com: <strong>Usuário:</strong> Gold21 | <strong>Senha:</strong> 102030</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        function gerarHash() {
+            const senha = document.getElementById('senha').value;
+            
+            if (!senha) {
+                alert('Por favor, digite uma senha!');
+                return;
+            }
+            
+            // Gera a hash bcrypt com custo 10 (padrão do PHP)
+            const hash = bcrypt.hashSync(senha, 10);
+            
+            // Exibe o resultado
+            document.getElementById('hashOutput').value = hash;
+            document.getElementById('resultado').classList.add('show');
+        }
+        
+        function copiarHash() {
+            const hashOutput = document.getElementById('hashOutput');
+            hashOutput.select();
+            document.execCommand('copy');
+            
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = '✅ Copiado!';
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 2000);
+        }
+        
+        // Gera automaticamente ao carregar a página
+        window.onload = function() {
+            gerarHash();
+        };
+    </script>
+</body>
+</html>

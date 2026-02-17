@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENTRAL21 - Sistema Completo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: white;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #b8b8b8;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+        
+        .section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .file-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .file-card:hover {
+            transform: translateY(-5px);
+            border-color: #4CAF50;
+        }
+        
+        .file-card h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .file-card p {
+            color: #b8b8b8;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .step {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid #4CAF50;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .step h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        
+        .step code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #4CAF50;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .credentials {
+            background: rgba(255, 152, 0, 0.1);
+            border: 2px solid rgba(255, 152, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .credentials h3 {
+            color: #FF9800;
+            margin-bottom: 15px;
+        }
+        
+        .credentials table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .credentials td {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .credentials td:first-child {
+            color: #b8b8b8;
+            width: 40%;
+        }
+        
+        .credentials td:last-child {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .alert {
+            background: rgba(33, 150, 243, 0.1);
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .alert h3 {
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            padding: 8px 0;
+            color: #b8b8b8;
+        }
+        
+        ul li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 CENTRAL21</h1>
+        <p class="subtitle">Sistema Completo - Painel Admin + Geradores + Hash Correta</p>
+        
+        <!-- Quick Start -->
+        <div class="section">
+            <h2>⚡ Início Rápido</h2>
+            
+            <div class="step">
+                <h3>1️⃣ Extraia os Arquivos</h3>
+                <p>Extraia todos os arquivos deste ZIP para o diretório do seu servidor</p>
+            </div>
+            
+            <div class="step">
+                <h3>2️⃣ Configure Permissões</h3>
+                <p>Execute no terminal:</p>
+                <code>chmod 666 config.json</code>
+            </div>
+            
+            <div class="step">
+                <h3>3️⃣ Faça Login</h3>
+                <p>Acesse: <code>admin_login.php</code></p>
+            </div>
+            
+            <div class="credentials">
+                <h3>🔑 Credenciais de Acesso</h3>
+                <table>
+                    <tr>
+                        <td>Usuário Normal:</td>
+                        <td>Gold21</td>
+                    </tr>
+                    <tr>
+                        <td>Senha Normal:</td>
+                        <td>102030</td>
+                    </tr>
+                    <tr>
+                        <td>Admin Usuário:</td>
+                        <td>Cloudfast</td>
+                    </tr>
+                    <tr>
+                        <td>Admin Senha:</td>
+                        <td>Cloud03@</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Arquivos -->
+        <div class="section">
+            <h2>📁 Arquivos Incluídos</h2>
+            
+            <h3 style="color: #4CAF50; margin-top: 30px;">🎛️ PAINEL ADMIN (Gerenciar Tudo)</h3>
+            <div class="file-grid">
+                <div class="file-card">
+                    <h3>admin_panel.php</h3>
+                    <p>Painel administrativo completo para gerenciar tokens, gates e produtos</p>
+                </div>
+                
+                <div class="file-card">
+                    <h3>config.json</h3>
+                    <p>Arquivo de configuração central (tokens, gates, produtos)</p>
+                </div>
+                
+                <div class="file-card">
+                    <h3>config_helper.php</h3>
+                    <p>Helper PHP para integrar configurações no código</p>
+                </div>
+                
+                <div class="file-card">
+                    <h3>home_updated.php</h3>
+                    <p>Home page que carrega gates automaticamente do config</p>
+                </div>
+            </div>
+            
+            <h3 style="color: #4CAF50; margin-top: 30px;">🔐 SISTEMA BASE</h3>
+            <div class="file-grid">
+                <div class="file-card">
+                    <h3>5ddd2e45...json</h3>
+                    <p>Usuários com hash corrigida (Gold21/102030)</p>
+                </div>
+                
+                <div class="file-card">
+                    <h3>gerador.php</h3>
+                    <p>Gerador de cartões integrado ao sistema</p>
+                </div>
+            </div>
+            
+            <h3 style="color: #4CAF50; margin-top: 30px;">🛠️ FERRAMENTAS</h3>
+            <div class="file-grid">
+                <div class="file-card">
+                    <h3>gerador_cartoes.html</h3>
+                    <p>Gerador de cartões standalone (abre no navegador)</p>
+                </div>
+                
+                <div class="file-card">
+                    <h3>gerador_hash_bcrypt.html</h3>
+                    <p>Gera hash bcrypt para senhas (abre no navegador)</p>
+                </div>
+            </div>
+            
+            <h3 style="color: #4CAF50; margin-top: 30px;">📚 DOCUMENTAÇÃO</h3>
+            <div class="file-grid">
+                <div class="file-card">
+                    <h3>GUIA_PAINEL_ADMIN.md</h3>
+                    <p>Documentação completa do painel admin</p>
+                </div>
+                
+                <div class="file-card">
+                    <h3>README.md</h3>
+                    <p>Guia geral do sistema e hash correta</p>
+                </div>
+                
+                <div class="file-card">
+                    <h3>exemplo_integracao.php</h3>
+                    <p>Exemplos de como integrar o sistema</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recursos -->
+        <div class="section">
+            <h2>✨ O Que Você Pode Fazer</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <h3 style="color: #4CAF50; margin-bottom: 15px;">Painel Admin:</h3>
+                    <ul>
+                        <li>Adicionar/remover tokens PagBank</li>
+                        <li>Configurar até 15 gates diferentes</li>
+                        <li>Gerenciar produtos e preços</li>
+                        <li>Ativar/desativar gates com 1 clique</li>
+                        <li>Dashboard com estatísticas</li>
+                        <li>Tudo sem editar código!</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: #4CAF50; margin-bottom: 15px;">Geradores:</h3>
+                    <ul>
+                        <li>Gerar cartões com algoritmo Luhn</li>
+                        <li>4 formatos de saída diferentes</li>
+                        <li>Até 1000 cartões por vez</li>
+                        <li>CVV aleatório ou personalizado</li>
+                        <li>BIN customizável</li>
+                        <li>Interface moderna</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Próximos Passos -->
+        <div class="section">
+            <h2>🎯 Próximos Passos</h2>
+            
+            <div class="alert">
+                <h3>📖 Leia Primeiro:</h3>
+                <p>Abra o arquivo <strong>GUIA_PAINEL_ADMIN.md</strong> para ver a documentação completa com exemplos, screenshots e solução de problemas.</p>
+            </div>
+            
+            <ol style="list-style: decimal; padding-left: 30px; color: #b8b8b8; line-height: 2;">
+                <li>Substitua o arquivo JSON de usuários no servidor</li>
+                <li>Faça login como usuário normal (Gold21/102030)</li>
+                <li>Acesse o painel admin (admin_login.php)</li>
+                <li>Configure seus tokens do PagBank</li>
+                <li>Adicione/configure suas gates</li>
+                <li>Teste o gerador de cartões</li>
+                <li>Integre com seu código existente (veja exemplo_integracao.php)</li>
+            </ol>
+        </div>
+        
+        <!-- Suporte -->
+        <div class="section">
+            <h2>💡 Dicas Importantes</h2>
+            <ul style="color: #b8b8b8; line-height: 2;">
+                <li><strong>Backup:</strong> Faça backup dos arquivos antes de substituir</li>
+                <li><strong>Permissões:</strong> O config.json precisa de permissão de escrita</li>
+                <li><strong>Senhas:</strong> Mude as senhas padrão após primeiro acesso</li>
+                <li><strong>Tokens:</strong> Adicione tokens válidos do PagBank no painel admin</li>
+                <li><strong>Teste:</strong> Teste em ambiente de desenvolvimento primeiro</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

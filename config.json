@@ -1,0 +1,65 @@
+{
+    "pagbank": {
+        "tokens": [
+            {
+                "id": 1,
+                "name": "Token Principal",
+                "token": "SEU_TOKEN_AQUI",
+                "status": "active",
+                "created_at": "2026-02-16",
+                "last_used": null
+            }
+        ],
+        "public_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0n4l5SEJovMAbXGFFWBzs92EjFfXUV7bEFoTVF6UfMKbgo+Hrgfn7vS+qRKAOP/hPNSDvAIMjU2nSn9DkdF8Xy2EBWVX2nI6umgZ/5wE62s87zzzNt0f76SyjJ6yWlyy0RyF+0to11lW3qb6up6Ytjziejli8JwUItx+YujX9TGDoxanJP6niyUm61zViPuMMAR6mjQDDH7NYV5lDKmmynA0OKYgRFM7ZweoccNI9ZfYY6/feUqo5UigvyuTL9J+nG/dGimVWBKuKcig6sIn1JvGh9CsLVq9Juc75uQdFSFpftNAYIKl/xWpzbux4gJMokw47mIWIsnoXGVmykXwRQIDAQAB"
+    },
+    "produtos": [
+        {
+            "id": 1,
+            "name": "Produto Teste",
+            "price": "10.00",
+            "description": "Produto de teste",
+            "status": "active",
+            "created_at": "2026-02-16"
+        }
+    ],
+    "gates": [
+        {
+            "id": 1,
+            "name": "PRE AUTH CC",
+            "slug": "preauth",
+            "icon": "fa-credit-card",
+            "description": "Checker de cartões com pré-autorização. Validação rápida e eficiente.",
+            "status": "active",
+            "gateway": "pagseguro",
+            "created_at": "2026-02-16"
+        },
+        {
+            "id": 2,
+            "name": "ALL BINS GG VBV",
+            "slug": "allbins",
+            "icon": "fa-check-circle",
+            "description": "Suporta todas as bandeiras de cartões. Gate otimizada para máxima aprovação.",
+            "status": "active",
+            "gateway": "pagseguro",
+            "created_at": "2026-02-16"
+        },
+        {
+            "id": 3,
+            "name": "Gerador de Cartões",
+            "slug": "gerador",
+            "icon": "fa-credit-card",
+            "description": "Gere cartões de teste com BINs personalizados de forma rápida e prática.",
+            "status": "active",
+            "gateway": "gerador",
+            "created_at": "2026-02-16"
+        }
+    ],
+    "system": {
+        "site_name": "CENTRAL21",
+        "max_gates": 15,
+        "admin": {
+            "username": "Gold21",
+            "password": "102030"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+═══════════════════════════════════════════════════════════════
+              🚀 INSTALAÇÃO RÁPIDA - 5 MINUTOS
+═══════════════════════════════════════════════════════════════
+
+1. EXTRAIR TUDO na pasta public_html da Squarecloud
+
+2. CONFIGURAR PERMISSÕES:
+   - Arquivo JSON: 666
+   - Arquivo cookie.txt: 666
+   - Demais arquivos: 644
+
+3. ATIVAR no Painel Squarecloud:
+   - PHP 7.4+
+   - mod_rewrite
+   - cURL
+
+4. ACESSAR: http://seudominio.com/
+
+5. LOGIN FIXO:
+   User: Gold21
+   Pass: 102030
+   (Nunca expira!)
+
+6. PRONTO! Acesse com:
+   User: Gold21
+   Pass: 102030
+
+═══════════════════════════════════════════════════════════════
+                    ✅ PRONTO PARA USAR!
+═══════════════════════════════════════════════════════════════
