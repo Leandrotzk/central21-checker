@@ -4,12 +4,11 @@ nixPkgs = [
   "php82Extensions.mbstring",
   "php82Extensions.curl",
   "php82Extensions.pdo",
-  "php82Extensions.json",
   "php82Extensions.openssl"
 ]
 
 [phases.install]
-cmds = ["echo 'Installing PHP dependencies...'"]
+cmds = ["echo 'Instalando dependências do PHP...'"]
 
 [start]
 cmd = "php -S 0.0.0.0:$PORT -t ."
